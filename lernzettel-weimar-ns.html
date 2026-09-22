@@ -1,0 +1,1485 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Weimar & Nationalsozialismus — Lernzettel Geschichte LK</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #eae6dd;
+    --paper-raised: #f4f1ea;
+    --ink: #201d19;
+    --ink-soft: #55504a;
+    --rule: #c9c1b3;
+    --red: #a6392b;
+    --red-soft: #a6392b1a;
+    --steel: #3d4a5c;
+    --steel-soft: #3d4a5c1a;
+    --gold: #8a6d1f;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  html { scroll-padding-top: 76px; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #17140f;
+      --paper-raised: #211d17;
+      --ink: #ece6da;
+      --ink-soft: #b5ac9c;
+      --rule: #3a352b;
+      --red: #d97a6a;
+      --red-soft: #d97a6a22;
+      --steel: #8ea2bd;
+      --steel-soft: #8ea2bd22;
+      --gold: #d1ad57;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #17140f;
+    --paper-raised: #211d17;
+    --ink: #ece6da;
+    --ink-soft: #b5ac9c;
+    --rule: #3a352b;
+    --red: #d97a6a;
+    --red-soft: #d97a6a22;
+    --steel: #8ea2bd;
+    --steel-soft: #8ea2bd22;
+    --gold: #d1ad57;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', system-ui, sans-serif;
+    line-height: 1.55;
+    font-size: 16px;
+  }
+  h1, h2, h3, .label {
+    font-family: 'Archivo', system-ui, sans-serif;
+  }
+  a { color: var(--red); }
+
+  /* ---------- Header ---------- */
+  header {
+    padding: env(safe-area-inset-top, 0px) 0 0 0;
+    border-bottom: 3px solid var(--ink);
+    background: var(--paper-raised);
+  }
+  .head-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 28px 24px 22px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 16px;
+  }
+  .kicker {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    color: var(--red);
+  }
+  h1 {
+    font-size: clamp(1.7rem, 4vw, 2.6rem);
+    font-weight: 800;
+    line-height: 1.05;
+    margin: 6px 0 0;
+    max-width: 720px;
+  }
+  .head-meta {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    max-width: 260px;
+    text-align: right;
+    border-left: 2px solid var(--rule);
+    padding-left: 14px;
+  }
+
+  /* ---------- Layout ---------- */
+  .wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+    display: grid;
+    grid-template-columns: 235px 1fr;
+    gap: 40px;
+  }
+  nav.toc {
+    position: sticky;
+    top: 20px;
+    align-self: start;
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+    padding-top: 28px;
+    font-size: 0.86rem;
+  }
+  nav.toc .toc-title {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    color: var(--ink-soft);
+    margin-bottom: 10px;
+  }
+  nav.toc ol { list-style: none; margin: 0; padding: 0; counter-reset: toc; }
+  nav.toc li { counter-increment: toc; margin-bottom: 3px; }
+  nav.toc a {
+    display: block;
+    color: var(--ink);
+    text-decoration: none;
+    padding: 4px 0 4px 22px;
+    position: relative;
+    border-left: 2px solid transparent;
+  }
+  nav.toc a::before {
+    content: counter(toc) ".";
+    position: absolute;
+    left: 0;
+    color: var(--ink-soft);
+    font-variant-numeric: tabular-nums;
+  }
+  nav.toc a:hover { border-left-color: var(--red); color: var(--red); }
+  .toc-toggle { display: none; }
+
+  main { min-width: 0; padding-top: 28px; }
+
+  /* ---------- Intro / Roter Faden ---------- */
+  .intro {
+    background: var(--paper-raised);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 22px 24px;
+    margin-bottom: 34px;
+  }
+  .flow {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    margin: 16px 0 6px;
+  }
+  .flow-step {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--steel);
+    padding: 9px 14px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    border-radius: 2px;
+  }
+  .flow-step:last-child { border-left-color: var(--red); }
+  .flow-arrow {
+    color: var(--ink-soft);
+    padding: 3px 0 3px 16px;
+    font-size: 0.95rem;
+  }
+
+  /* ---------- Chapters ---------- */
+  section.chapter {
+    margin-bottom: 30px;
+    scroll-margin-top: 76px;
+  }
+  details {
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    background: var(--paper-raised);
+    overflow: hidden;
+  }
+  details[data-phase="weimar"] { border-left: 5px solid var(--steel); }
+  details[data-phase="krise"]  { border-left: 5px solid var(--gold); }
+  details[data-phase="ns"]     { border-left: 5px solid var(--red); }
+  details[data-phase="macht"]  { border-left: 5px solid var(--ink); }
+
+  summary {
+    padding: 14px 20px;
+    cursor: pointer;
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    list-style: none;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::before {
+    content: "＋";
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    width: 18px;
+    flex-shrink: 0;
+  }
+  details[open] summary::before { content: "－"; }
+  summary .num {
+    font-variant-numeric: tabular-nums;
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
+  .chapter-body {
+    padding: 4px 22px 20px;
+    border-top: 1px solid var(--rule);
+  }
+  h3.sub {
+    font-size: 0.98rem;
+    font-weight: 700;
+    margin: 20px 0 8px;
+    color: var(--ink);
+  }
+  h3.sub .tag {
+    color: var(--ink-soft);
+    font-weight: 500;
+    margin-right: 6px;
+  }
+  p { margin: 8px 0; }
+  ul, ol.plain { margin: 6px 0 14px; padding-left: 20px; }
+  li { margin-bottom: 3px; }
+  .cols2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0 28px; }
+  @media (max-width: 640px) { .cols2 { grid-template-columns: 1fr; } }
+
+  blockquote {
+    border-left: 3px solid var(--gold);
+    margin: 14px 0;
+    padding: 6px 16px;
+    font-style: italic;
+    color: var(--ink-soft);
+    background: var(--red-soft);
+  }
+
+  .callout {
+    margin: 16px 0;
+    border: 1px solid var(--red);
+    border-radius: 3px;
+    padding: 12px 16px;
+    background: var(--red-soft);
+  }
+  .callout .callout-label {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: 0.03em;
+    color: var(--red);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .callout.strike .callout-label { text-decoration: line-through; text-decoration-color: var(--red); }
+
+  .defbox {
+    margin: 16px 0;
+    border: 1px solid var(--steel);
+    border-radius: 3px;
+    padding: 12px 16px;
+    background: var(--steel-soft);
+  }
+  .defbox .defbox-term {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--steel);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 0.92rem; }
+  th, td { border: 1px solid var(--rule); padding: 8px 10px; text-align: left; vertical-align: top; }
+  th { background: var(--paper); font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 0.85rem; }
+  .tscroll { overflow-x: auto; }
+
+  /* Glossary */
+  .glossary { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 700px) { .glossary { grid-template-columns: 1fr; } }
+  .gterm {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--gold);
+    border-radius: 3px;
+    padding: 10px 14px;
+  }
+  .gterm b { font-family: 'Archivo', sans-serif; display: block; margin-bottom: 3px; }
+
+  /* Timeline */
+  .timeline { position: relative; margin: 18px 0 6px; padding-left: 26px; }
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 6px; top: 4px; bottom: 4px;
+    width: 2px;
+    background: var(--rule);
+  }
+  .tl-item { position: relative; padding-bottom: 16px; }
+  .tl-item::before {
+    content: "";
+    position: absolute;
+    left: -26px; top: 3px;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--red);
+    border: 2px solid var(--paper-raised);
+  }
+  .tl-date { font-weight: 700; font-size: 0.85rem; color: var(--red); display: block; }
+  .tl-text { font-size: 0.93rem; }
+
+  .questions { counter-reset: q; padding-left: 0; list-style: none; }
+  .questions li {
+    counter-increment: q;
+    margin-bottom: 12px;
+    padding-left: 34px;
+    position: relative;
+  }
+  .questions li::before {
+    content: counter(q);
+    position: absolute;
+    left: 0; top: 0;
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  footer {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 20px 24px 40px;
+    color: var(--ink-soft);
+    font-size: 0.8rem;
+    border-top: 1px solid var(--rule);
+  }
+
+  /* Mobile nav */
+  @media (max-width: 900px) {
+    .wrap { grid-template-columns: 1fr; }
+    nav.toc {
+      position: static;
+      max-height: none;
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      background: var(--paper-raised);
+      padding: 10px 16px;
+      margin-top: 18px;
+    }
+    nav.toc ol { display: none; padding-top: 8px; }
+    .toc-toggle {
+      display: block;
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: none;
+      font-family: 'Archivo', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--ink);
+      padding: 4px 0;
+    }
+    nav.toc.open ol { display: block; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="head-inner">
+    <div>
+      <span class="kicker">LERNZETTEL · GESCHICHTE LK Q2 · NRW</span>
+      <h1>Weimarer Republik, Aufstieg der NSDAP und nationalsozialistische Machtsicherung</h1>
+    </div>
+    <div class="head-meta">Krise der Weimarer Republik — Ideologie der NSDAP — Gleichschaltung — Tag von Potsdam</div>
+  </div>
+</header>
+
+<div class="wrap">
+  <nav class="toc" id="toc">
+    <button class="toc-toggle" onclick="document.getElementById('toc').classList.toggle('open')">Inhaltsverzeichnis ☰</button>
+    <div class="toc-title">INHALT</div>
+    <ol>
+      <li><a href="#ueberblick">Klausurüberblick: der rote Faden</a></li>
+      <li><a href="#entstehung">Entstehung der Weimarer Republik</a></li>
+      <li><a href="#verfassung">Die Weimarer Verfassung</a></li>
+      <li><a href="#belastungen">Belastungen seit 1919</a></li>
+      <li><a href="#justiz">Politische Justiz</a></li>
+      <li><a href="#1923">Krisenjahr 1923</a></li>
+      <li><a href="#stabilisierung">Stabilisierung 1924–1929</a></li>
+      <li><a href="#wwk">Weltwirtschaftskrise ab 1929</a></li>
+      <li><a href="#bruening">Brünings Deflationspolitik</a></li>
+      <li><a href="#nsdap-erfolg">Warum gewann die NSDAP?</a></li>
+      <li><a href="#nsdap-vor33">Die NSDAP vor 1933</a></li>
+      <li><a href="#putsch1923">Hitlerputsch 1923</a></li>
+      <li><a href="#strategie">Strategiewechsel der NSDAP</a></li>
+      <li><a href="#ideologie">Ideologie der NSDAP</a></li>
+      <li><a href="#propaganda">Hitlers Propaganda</a></li>
+      <li><a href="#krise1930">Politische Krise ab 1930</a></li>
+      <li><a href="#preussenschlag">Der Preußenschlag</a></li>
+      <li><a href="#letzteschritte">Weg zur Ernennung Hitlers</a></li>
+      <li><a href="#hindenburg">Rolle Hindenburgs</a></li>
+      <li><a href="#gleichschaltung">Machtsicherung 1933–34</a></li>
+      <li><a href="#reichstagsbrand">Reichstagsbrand & Verordnung</a></li>
+      <li><a href="#maerz33">Reichstagswahl 5. März 1933</a></li>
+      <li><a href="#potsdam">Der Tag von Potsdam</a></li>
+      <li><a href="#ermaechtigung">Ermächtigungsgesetz</a></li>
+      <li><a href="#laender">Gleichschaltung der Länder</a></li>
+      <li><a href="#gewerkschaften">Zerschlagung der Gewerkschaften</a></li>
+      <li><a href="#parteien">Ausschaltung der Parteien</a></li>
+      <li><a href="#gesellschaft">Gleichschaltung der Gesellschaft</a></li>
+      <li><a href="#roehm">Der Röhm-Putsch</a></li>
+      <li><a href="#hindenburgtod">Tod Hindenburgs</a></li>
+      <li><a href="#vergleich">Vergleich Weimar vs. NS-Staat</a></li>
+      <li><a href="#chronologie">Chronologie</a></li>
+      <li><a href="#begriffe">Begriffe für die Klausur</a></li>
+      <li><a href="#uebung">Übungsaufgaben</a></li>
+    </ol>
+  </nav>
+
+  <main>
+
+    <section class="chapter" id="ueberblick">
+      <div class="intro">
+        <h3 class="sub" style="margin-top:0">Klausurüberblick: Der rote Faden</h3>
+        <p>Für die Klausur solltest du nicht nur einzelne Ereignisse auswendig kennen, sondern ihren <strong>Zusammenhang</strong> erklären können:</p>
+        <div class="flow">
+          <div class="flow-step">Belastungen seit 1918</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">wirtschaftliche und politische Krisen</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">Vertrauensverlust in die Demokratie</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">Stärkung radikaler Parteien, besonders der NSDAP</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">Präsidialkabinette und Ausschaltung des Parlaments</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">Ernennung Hitlers am 30. Januar 1933</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">Umwandlung der Demokratie in eine Diktatur</div>
+        </div>
+        <div class="callout strike">
+          <span class="callout-label">Kein Alleinverursacher</span>
+          Die Weimarer Republik scheiterte nicht ausschließlich an der Weltwirtschaftskrise, nicht allein an Hitler und auch nicht nur an der Weimarer Verfassung. Entscheidend war das <strong>Zusammenspiel</strong> aus wirtschaftlichen Problemen, antidemokratischen Eliten, politischen Fehlern, gesellschaftlicher Radikalisierung und Hitlers strategischem Vorgehen.
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ENTSTEHUNG ================= -->
+    <section class="chapter" id="entstehung">
+      <details open data-phase="weimar">
+        <summary><span class="num">01</span> Die Entstehung der Weimarer Republik</summary>
+        <div class="chapter-body">
+
+          <h3 class="sub"><span class="tag">2.1</span>Novemberrevolution 1918</h3>
+          <p><strong>Ausgangslage:</strong> Im Herbst 1918 war das Deutsche Reich militärisch besiegt. Die Oberste Heeresleitung wusste, dass der Krieg nicht mehr gewonnen werden konnte. Trotzdem wurde die Verantwortung für die Niederlage später nicht von den Militärs übernommen.</p>
+          <p><strong>Am 9. November 1918:</strong></p>
+          <ul>
+            <li>Reichskanzler Prinz Max von Baden übergab sein Amt an Friedrich Ebert.</li>
+            <li>Philipp Scheidemann rief die deutsche Republik aus.</li>
+            <li>Kaiser Wilhelm II. floh in die Niederlande.</li>
+            <li>Das Deutsche Reich wurde von einer Monarchie zu einer Republik.</li>
+          </ul>
+          <div class="cols2">
+            <div>
+              <p><strong>Die SPD wollte vor allem:</strong></p>
+              <ul>
+                <li>staatliche Ordnung sichern,</li>
+                <li>eine parlamentarische Demokratie errichten,</li>
+                <li>eine Räterepublik nach sowjetischem Vorbild verhindern,</li>
+                <li>soziale Reformen schrittweise umsetzen.</li>
+              </ul>
+            </div>
+            <div>
+              <p><strong>Die radikale Linke wollte teilweise:</strong></p>
+              <ul>
+                <li>eine sozialistische Revolution,</li>
+                <li>eine Räterepublik,</li>
+                <li>die Enteignung großer Unternehmen,</li>
+                <li>eine politische Ordnung nach sowjetischem Vorbild.</li>
+              </ul>
+            </div>
+          </div>
+
+          <h3 class="sub"><span class="tag">2.2</span>Ebert-Groener-Pakt</h3>
+          <p>Friedrich Ebert arbeitete mit der militärischen Führung zusammen. General Wilhelm Groener versprach, die neue Regierung zu unterstützen. Im Gegenzug durfte die Reichswehr weitgehend selbstständig bleiben.</p>
+          <div class="cols2">
+            <div>
+              <p><strong>Kurzfristige Folgen:</strong></p>
+              <ul>
+                <li>Die Regierung konnte Aufstände niederschlagen.</li>
+                <li>Die staatliche Ordnung blieb erhalten.</li>
+                <li>Eine kommunistische Revolution wurde verhindert.</li>
+              </ul>
+            </div>
+            <div>
+              <p><strong>Langfristige Folgen:</strong></p>
+              <ul>
+                <li>Die Reichswehr blieb der Demokratie gegenüber distanziert.</li>
+                <li>Das Militär entwickelte sich teilweise zu einem „Staat im Staate“.</li>
+                <li>Demokratische Kräfte verloren Vertrauen in die SPD.</li>
+                <li>Die politische Spaltung der Arbeiterbewegung wurde verstärkt.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- ================= VERFASSUNG ================= -->
+    <section class="chapter" id="verfassung">
+      <details data-phase="weimar">
+        <summary><span class="num">02</span> Die Weimarer Verfassung</summary>
+        <div class="chapter-body">
+          <p>Die Weimarer Reichsverfassung wurde am <strong>31. Juli 1919</strong> verabschiedet und trat am <strong>11. August 1919</strong> in Kraft.</p>
+
+          <h3 class="sub"><span class="tag">3.1</span>Demokratische Elemente</h3>
+          <p>Die Verfassung enthielt für die damalige Zeit viele fortschrittliche Elemente:</p>
+          <ul>
+            <li>allgemeines, gleiches, geheimes und direktes Wahlrecht,</li>
+            <li>Wahlrecht für Frauen,</li>
+            <li>Volkssouveränität,</li>
+            <li>Grundrechte,</li>
+            <li>Reichstag als gewähltes Parlament,</li>
+            <li>Volksbegehren und Volksentscheid,</li>
+            <li>soziale Grundrechte,</li>
+            <li>parlamentarische Verantwortlichkeit der Regierung.</li>
+          </ul>
+          <blockquote>Artikel 1 (sinngemäß): „Das Deutsche Reich ist eine Republik. Die Staatsgewalt geht vom Volke aus.“</blockquote>
+
+          <h3 class="sub"><span class="tag">3.2</span>Die Machtverteilung</h3>
+          <div class="cols2">
+            <div>
+              <p><strong>Reichstag</strong></p>
+              <ul>
+                <li>wurde vom Volk gewählt,</li>
+                <li>beschloss Gesetze,</li>
+                <li>bewilligte den Haushalt,</li>
+                <li>konnte der Regierung das Vertrauen entziehen.</li>
+              </ul>
+              <p><strong>Reichskanzler</strong></p>
+              <ul>
+                <li>leitete die Regierung,</li>
+                <li>war auf die Ernennung durch den Reichspräsidenten angewiesen,</li>
+                <li>benötigte grundsätzlich das Vertrauen des Reichstags.</li>
+              </ul>
+            </div>
+            <div>
+              <p><strong>Reichspräsident</strong></p>
+              <ul>
+                <li>wurde direkt vom Volk gewählt,</li>
+                <li>hatte eine Amtszeit von sieben Jahren,</li>
+                <li>ernannte und entließ den Reichskanzler,</li>
+                <li>konnte den Reichstag auflösen,</li>
+                <li>war Oberbefehlshaber der Reichswehr,</li>
+                <li>konnte sich auf Artikel 48 stützen.</li>
+              </ul>
+            </div>
+          </div>
+
+          <h3 class="sub"><span class="tag">3.3</span>Problematische Elemente der Verfassung</h3>
+          <p>Die Verfassung war nicht von Anfang an automatisch „zum Scheitern verurteilt“. Sie besaß aber Schwachstellen, die in einer Krise gefährlich wurden.</p>
+
+          <p><strong>Artikel 25 — Reichstagsauflösung:</strong> Der Reichspräsident konnte den Reichstag auflösen und Neuwahlen anordnen.</p>
+          <ul>
+            <li>Häufige Neuwahlen erschwerten stabile Regierungsarbeit.</li>
+            <li>Parteien konnten taktisch auf Neuwahlen setzen.</li>
+            <li>Die Bevölkerung wurde politisch ermüdet.</li>
+            <li>Radikale Parteien konnten Wahlkämpfe für Propaganda nutzen.</li>
+          </ul>
+
+          <p><strong>Artikel 48 — Notverordnungsrecht:</strong> Der Reichspräsident konnte bei einer erheblichen Störung oder Gefährdung von Sicherheit und Ordnung Notverordnungen erlassen. Dabei konnten Grundrechte eingeschränkt oder außer Kraft gesetzt werden.</p>
+          <ul>
+            <li>Eigentlich war Artikel 48 für Ausnahmefälle gedacht.</li>
+            <li>Ab 1930 wurde er zunehmend zum normalen Regierungsinstrument.</li>
+            <li>Der Reichstag wurde umgangen.</li>
+            <li>Die Demokratie wurde formal nicht sofort abgeschafft, aber praktisch ausgehöhlt.</li>
+          </ul>
+
+          <p><strong>Verhältniswahlrecht ohne Sperrklausel:</strong> Parteien erhielten Sitze entsprechend ihrem Stimmenanteil.</p>
+          <ul>
+            <li>Auch kleine Parteien gelangten in den Reichstag.</li>
+            <li>Es gab viele Parteien und wechselnde Koalitionen.</li>
+            <li>Regierungsbildungen wurden schwieriger.</li>
+            <li>Politische Verantwortung konnte leicht hin- und hergeschoben werden.</li>
+          </ul>
+
+          <div class="callout strike">
+            <span class="callout-label">Verfassungsfehler allein</span>
+            Die Weimarer Verfassung verursachte den Untergang nicht automatisch. Entscheidend war, dass antidemokratische Politiker und Parteien ihre Möglichkeiten nutzten, um das Parlament dauerhaft zu umgehen.
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- ================= BELASTUNGEN ================= -->
+    <section class="chapter" id="belastungen">
+      <details data-phase="weimar">
+        <summary><span class="num">03</span> Belastungen der Weimarer Republik seit 1919</summary>
+        <div class="chapter-body">
+
+          <h3 class="sub"><span class="tag">4.1</span>Versailler Vertrag</h3>
+          <p>Der Versailler Vertrag wurde am <strong>28. Juni 1919</strong> unterzeichnet. Deutschland musste unter anderem:</p>
+          <ul>
+            <li>Gebiete abtreten,</li>
+            <li>Kolonien verlieren,</li>
+            <li>das Militär stark begrenzen,</li>
+            <li>Reparationen zahlen,</li>
+            <li>demilitarisierte Zonen akzeptieren,</li>
+            <li>die Kriegsschuldfrage anerkennen.</li>
+          </ul>
+          <p>Besonders belastend war der sogenannte <strong>Kriegsschuldartikel 231</strong>. Er wurde in Deutschland als kollektive Schuldzuweisung verstanden.</p>
+          <p><strong>Politische Folgen:</strong> Der Vertrag wurde von rechten Parteien als „Schandfrieden“ bezeichnet. Die demokratischen Politiker, die den Vertrag unterzeichneten, wurden als „Novemberverbrecher“, „Erfüllungspolitiker“ oder Verräter diffamiert. Die Republik wurde dadurch mit Niederlage, Revolution und nationaler Demütigung verbunden.</p>
+          <p><strong>Bedeutung für die NSDAP:</strong> Hitler nutzte den Versailler Vertrag als Propagandathema — er versprach die Aufhebung des Vertrags, forderte Wiederaufrüstung, stellte sich als Verteidiger der nationalen Ehre dar und verband Versailles mit der Dolchstoßlegende und antisemitischer Hetze.</p>
+
+          <h3 class="sub"><span class="tag">4.2</span>Dolchstoßlegende</h3>
+          <p>Die Dolchstoßlegende behauptete, das deutsche Heer sei im Ersten Weltkrieg militärisch nicht besiegt worden. Es sei von der Heimat, den Demokraten, Sozialisten und Juden „von hinten erdolcht“ worden.</p>
+          <div class="cols2">
+            <div>
+              <p><strong>Tatsächlich:</strong></p>
+              <ul>
+                <li>Das deutsche Heer war militärisch erschöpft.</li>
+                <li>Die Westfront war zusammengebrochen.</li>
+                <li>Die Oberste Heeresleitung hatte selbst um Waffenstillstand gebeten.</li>
+                <li>Die Revolution begann erst nach der militärischen Niederlage.</li>
+              </ul>
+            </div>
+            <div>
+              <p><strong>Politisch wirksam, weil sie:</strong></p>
+              <ul>
+                <li>die Militärführung entlastete,</li>
+                <li>die Republik belastete,</li>
+                <li>demokratische Parteien als Verräter darstellte,</li>
+                <li>antisemitische und antimarxistische Feindbilder stärkte.</li>
+              </ul>
+            </div>
+          </div>
+          <p>Hindenburg verbreitete die Dolchstoßlegende 1919 vor einem Untersuchungsausschuss der Nationalversammlung.</p>
+
+          <h3 class="sub"><span class="tag">4.3</span>Politische Gewalt und Putschversuche</h3>
+          <p><strong>Spartakusaufstand 1919:</strong> Aufstand der radikalen Linken in Berlin. Niederschlagung durch Freikorps. Ermordung von Rosa Luxemburg und Karl Liebknecht. Dauerhafte Spaltung zwischen SPD und KPD.</p>
+          <p><strong>Kapp-Lüttwitz-Putsch 1920</strong></p>
+          <ul>
+            <li><strong>Ziele:</strong> Sturz der Republik, Errichtung einer autoritären Militärregierung, Rücknahme demokratischer Entwicklungen.</li>
+            <li><strong>Beteiligte:</strong> Wolfgang Kapp, General Walther von Lüttwitz, Freikorps, Teile der Reichswehr.</li>
+          </ul>
+          <p>Die Reichswehr verweigerte den Einsatz gegen die Putschisten. General von Seeckt erklärte sinngemäß, die Reichswehr schieße nicht auf Reichswehr. Der Putsch scheiterte durch einen Generalstreik.</p>
+          <p><strong>Bedeutung:</strong></p>
+          <ul>
+            <li>Die Republik hatte in Teilen des Militärs keine zuverlässige Unterstützung.</li>
+            <li>Ein Generalstreik konnte die Demokratie retten.</li>
+            <li>Rechte Putschisten wurden häufig milder behandelt als linke Aufständische.</li>
+            <li>Die politische Justiz war gegenüber rechtsradikalen Tätern oft nachsichtig.</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <!-- ================= JUSTIZ ================= -->
+    <section class="chapter" id="justiz">
+      <details data-phase="weimar">
+        <summary><span class="num">04</span> Politische Justiz: „Auf dem rechten Auge blind“</summary>
+        <div class="chapter-body">
+          <p>In der Weimarer Republik gingen Gerichte gegen politische Straftäter nicht gleichmäßig vor.</p>
+
+          <h3 class="sub"><span class="tag">5.1</span>Rechte Gewalt</h3>
+          <p>Rechte Täter erhielten oft: geringe Haftstrafen, Festungshaft, Bewährung, politische Nachsicht.</p>
+          <p><strong>Beispiele:</strong> Morde an Matthias Erzberger und Walther Rathenau; Hitlerputsch 1923.</p>
+
+          <h3 class="sub"><span class="tag">5.2</span>Linke und republikanische Gegner</h3>
+          <p>Linke Aktivisten und Demokraten wurden dagegen oft härter verfolgt.</p>
+          <p><strong>Beispiel:</strong> Carl von Ossietzky wurde 1931 wegen der Veröffentlichung von Informationen über geheime Reichswehraktivitäten zu einer Gefängnisstrafe verurteilt.</p>
+
+          <div class="defbox">
+            <span class="defbox-term">Politische Justiz</span>
+            Eine Rechtsprechung, bei der politische Interessen und Wertvorstellungen die Behandlung politischer Straftaten beeinflussen. In der Weimarer Republik wurden rechte Täter häufiger milder, linke Täter und republikanische Kritiker häufiger härter bestraft.
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- ================= 1923 ================= -->
+    <section class="chapter" id="1923">
+      <details data-phase="krise">
+        <summary><span class="num">05</span> Krisenjahr 1923</summary>
+        <div class="chapter-body">
+          <p>Das Jahr 1923 war eine der schwersten Krisen der Weimarer Republik.</p>
+
+          <h3 class="sub"><span class="tag">6.1</span>Ruhrbesetzung</h3>
+          <p>Deutschland war mit Reparationszahlungen und Lieferungen im Rückstand. Daraufhin besetzten französische und belgische Truppen im Januar 1923 das Ruhrgebiet. Das Ruhrgebiet war wichtig, weil es Zentrum der deutschen Kohle- und Stahlproduktion war, für die deutsche Wirtschaft entscheidend war und symbolisch für die industrielle Stärke des Reiches stand.</p>
+
+          <h3 class="sub"><span class="tag">6.2</span>Passiver Widerstand</h3>
+          <p>Die Reichsregierung unter Wilhelm Cuno rief zum passiven Widerstand auf. Arbeiter und Beamte sollten nicht mit der Besatzungsmacht zusammenarbeiten, streiken, Befehle nicht ausführen, die Produktion stilllegen. Der Staat bezahlte die Streikenden weiter, obwohl kaum Einnahmen erzielt wurden.</p>
+          <p><strong>Folgen:</strong> Produktionsausfall, sinkende Steuereinnahmen, enorme Staatsausgaben, weitere Geldvermehrung, Beschleunigung der Inflation.</p>
+
+          <h3 class="sub"><span class="tag">6.3</span>Hyperinflation</h3>
+          <p>Die Regierung finanzierte den passiven Widerstand durch die Notenpresse. Dadurch verlor die Mark immer schneller an Wert.</p>
+          <ul>
+            <li>Preise stiegen mehrfach am Tag.</li>
+            <li>Löhne mussten täglich oder sogar mehrmals täglich ausgezahlt werden.</li>
+            <li>Sparguthaben wurden wertlos.</li>
+            <li>Menschen tauschten Geld sofort gegen Waren.</li>
+            <li>Naturalien wurden zu Zahlungsmitteln.</li>
+            <li>Mittelschichten verloren ihre Ersparnisse.</li>
+            <li>Vertrauen in Staat und Währung sank.</li>
+          </ul>
+          <div class="cols2">
+            <div>
+              <p><strong>Gewinner:</strong></p>
+              <ul>
+                <li>Schuldner,</li>
+                <li>Besitzer von Sachwerten,</li>
+                <li>einige Großunternehmer,</li>
+                <li>Bauern,</li>
+                <li>Menschen mit Devisen,</li>
+                <li>der Staat, weil Kriegsschulden real an Wert verloren.</li>
+              </ul>
+            </div>
+            <div>
+              <p><strong>Verlierer:</strong></p>
+              <ul>
+                <li>Sparer,</li>
+                <li>Rentner,</li>
+                <li>Angestellte mit festen Einkommen,</li>
+                <li>Gläubiger,</li>
+                <li>Teile des Mittelstands.</li>
+              </ul>
+            </div>
+          </div>
+
+          <h3 class="sub"><span class="tag">6.4</span>Ende der Hyperinflation</h3>
+          <p>Im November 1923 wurde die Rentenmark eingeführt. Außerdem beendete die Regierung Stresemann den passiven Widerstand, die Wirtschaft wurde stabilisiert und Reparationsfragen neu verhandelt. Die Hyperinflation war damit beendet, hinterließ aber ein tiefes psychologisches Trauma.</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- ================= STABILISIERUNG ================= -->
+    <section class="chapter" id="stabilisierung">
+      <details data-phase="krise">
+        <summary><span class="num">06</span> Die relative Stabilisierung von 1924 bis 1929</summary>
+        <div class="chapter-body">
+          <p>Die Jahre 1924 bis 1929 werden oft als „Goldene Zwanziger“ bezeichnet. Der Begriff ist aber nur teilweise richtig.</p>
+          <div class="cols2">
+            <div>
+              <p><strong>Positive Entwicklungen:</strong></p>
+              <ul>
+                <li>Einführung der Rentenmark und später der Reichsmark,</li>
+                <li>wirtschaftlicher Aufschwung,</li>
+                <li>sinkende Arbeitslosigkeit,</li>
+                <li>kulturelle Modernisierung,</li>
+                <li>außenpolitische Entspannung,</li>
+                <li>Beitritt Deutschlands zum Völkerbund 1926,</li>
+                <li>Dawes-Plan 1924,</li>
+                <li>Locarno-Verträge 1925.</li>
+              </ul>
+            </div>
+            <div>
+              <p><strong>Verdeckte Probleme:</strong></p>
+              <ul>
+                <li>Wirtschaft war stark von US-Krediten abhängig.</li>
+                <li>Viele Unternehmen und Kommunen waren verschuldet.</li>
+                <li>Landwirtschaft blieb in einer Krise.</li>
+                <li>Arbeitslosigkeit verschwand nicht vollständig.</li>
+                <li>Militär, Justiz und Verwaltung blieben teilweise antidemokratisch.</li>
+                <li>Große Teile des Bürgertums lehnten die Republik weiterhin ab.</li>
+                <li>Die NSDAP wurde nach dem Hitlerputsch vorübergehend geschwächt, aber nicht beseitigt.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- ================= WWK ================= -->
+    <section class="chapter" id="wwk">
+      <details data-phase="krise">
+        <summary><span class="num">07</span> Weltwirtschaftskrise ab 1929</summary>
+        <div class="chapter-body">
+
+          <h3 class="sub"><span class="tag">8.1</span>Ursachen</h3>
+          <p>Auslöser war der Börsencrash in New York im Oktober 1929. Die Krise hatte mehrere Ursachen: Überproduktion, Spekulation an der Börse, Verschuldung, instabiles internationales Finanzsystem, Rückgang der Nachfrage, zunehmender Protektionismus.</p>
+
+          <h3 class="sub"><span class="tag">8.2</span>Warum Deutschland besonders betroffen war</h3>
+          <p>Deutschland war stark von amerikanischen Krediten abhängig. Nach dem Börsencrash zogen amerikanische Banken ihre Kredite zurück, deutsche Unternehmen verloren Kapital, Banken gerieten in Schwierigkeiten, Investitionen brachen ein, Unternehmen schlossen, Arbeitslosigkeit stieg.</p>
+
+          <h3 class="sub"><span class="tag">8.3</span>Folgen für Deutschland</h3>
+          <ul>
+            <li>Deutsche Warenexporte sanken von 13,5 Milliarden auf 5,7 Milliarden Reichsmark.</li>
+            <li>Die Industrieproduktion fiel um ungefähr 40 %.</li>
+            <li>Die Zahl der Arbeitslosen stieg von etwa 1,3 Millionen im September 1929 auf über 6 Millionen Anfang 1933.</li>
+            <li>Das Realeinkommen sank um etwa ein Drittel.</li>
+          </ul>
+          <p>Die Krise führte zu: Armut, Obdachlosigkeit, Hoffnungslosigkeit, Kriminalität, sozialem Abstieg, politischen Radikalisierungen.</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- ================= BRÜNING ================= -->
+    <section class="chapter" id="bruening">
+      <details data-phase="krise">
+        <summary><span class="num">08</span> Brünings Deflationspolitik</summary>
+        <div class="chapter-body">
+          <p>Heinrich Brüning wurde am <strong>30. März 1930</strong> Reichskanzler. Er regierte ohne stabile parlamentarische Mehrheit und stützte sich auf Reichspräsident Hindenburg sowie Artikel 48.</p>
+
+          <div class="cols2">
+            <div>
+              <p><strong>Maßnahmen:</strong></p>
+              <ul>
+                <li>Steuererhöhungen,</li>
+                <li>Kürzung staatlicher Ausgaben,</li>
+                <li>Senkung von Löhnen und Gehältern,</li>
+                <li>Kürzung von Sozialleistungen,</li>
+                <li>Kürzung von Arbeitslosenunterstützung,</li>
+                <li>allgemeine Lohn-, Miet-, Zins- und Preissenkungen.</li>
+              </ul>
+            </div>
+            <div>
+              <p><strong>Ziel:</strong></p>
+              <ul>
+                <li>den Staatshaushalt ausgleichen,</li>
+                <li>die Währung stabil halten,</li>
+                <li>den Young-Plan als unerfüllbar darstellen,</li>
+                <li>eine Aufhebung der Reparationszahlungen erreichen.</li>
+              </ul>
+            </div>
+          </div>
+
+          <p><strong>Folgen — die Abwärtsspirale:</strong></p>
+          <div class="flow">
+            <div class="flow-step">Kürzung der Staatsausgaben</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step">weniger Nachfrage</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step">weniger Produktion</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step">mehr Arbeitslosigkeit</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step">noch weniger Nachfrage</div>
+          </div>
+          <p>Brüning versuchte also, die Krise durch Sparen zu bekämpfen, verschärfte sie aber sozial und wirtschaftlich.</p>
+
+          <h3 class="sub">Historische Bewertung Brünings</h3>
+          <div class="cols2">
+            <div>
+              <p><strong>Interpretation 1:</strong></p>
+              <ul>
+                <li>Brüning wollte die Republik retten.</li>
+                <li>Er wollte verhindern, dass Deutschland erneut inflationär Geld druckte.</li>
+                <li>Er musste außenpolitischen Druck berücksichtigen.</li>
+              </ul>
+            </div>
+            <div>
+              <p><strong>Interpretation 2:</strong></p>
+              <ul>
+                <li>Brüning nahm die Verelendung bewusst in Kauf.</li>
+                <li>Seine Politik war auch auf die Aufhebung der Reparationszahlungen gerichtet.</li>
+                <li>Durch die Notverordnungen trug er zur Zerstörung des Parlamentarismus bei.</li>
+                <li>Die extreme Sparpolitik erleichterte der NSDAP die Propaganda.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- ================= NSDAP ERFOLG ================= -->
+    <section class="chapter" id="nsdap-erfolg">
+      <details data-phase="ns">
+        <summary><span class="num">09</span> Warum gewann die NSDAP an Unterstützung?</summary>
+        <div class="chapter-body">
+          <p>Die Weltwirtschaftskrise erklärt den Aufstieg der NSDAP nicht allein.</p>
+
+          <h3 class="sub"><span class="tag">10.1</span>Wählergruppen</h3>
+          <p>Die NSDAP gewann besonders Unterstützung bei: Teilen des Mittelstands, Handwerkern, kleinen Geschäftsleuten, Bauern, Beamten, Studenten, jungen Akademikern, Teilen der Angestellten, konservativen und nationalistischen Wählern.</p>
+          <p>Nicht alle Arbeitslosen wählten die NSDAP. Viele wählten die KPD. Die NSDAP konnte aber mit einer breiten Krisenkoalition Wähler aus verschiedenen gesellschaftlichen Gruppen gewinnen.</p>
+
+          <h3 class="sub"><span class="tag">10.2</span>Gründe für die Wahlgewinne</h3>
+          <p><strong>Krisenangst:</strong> Viele Menschen fürchteten Arbeitslosigkeit, sozialen Abstieg, Enteignung, kommunistische Revolution, Verlust nationaler Größe.</p>
+          <p><strong>Ablehnung der Demokratie:</strong> Die Demokratie wurde für viele mit Versailler Vertrag, Inflation, Parteienchaos, Arbeitslosigkeit, politischer Gewalt und wirtschaftlicher Unsicherheit verbunden.</p>
+          <p><strong>Propaganda:</strong> Die NSDAP versprach gleichzeitig nationale Erneuerung, Arbeit, Ordnung, Überwindung von Versailles, Wiederaufrüstung, Bekämpfung des Kommunismus, Überwindung von Klassenkonflikten, eine starke Führung.</p>
+          <p><strong>Organisationsfähigkeit:</strong> Die NSDAP verfügte über Ortsgruppen, SA, Parteizeitungen, Wahlkampfveranstaltungen, Lautsprecherwagen, Plakate, moderne Massenkommunikation, intensive persönliche Ansprache.</p>
+          <p><strong>Feindbilder:</strong> Die NSDAP erklärte die Krise durch Feinde: Juden, Marxisten, Kommunisten, Demokraten, Versailler Vertrag, „Novemberverbrecher“, internationale Finanzmächte. Dadurch wurden komplexe Probleme scheinbar einfach erklärt.</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- ================= NSDAP VOR 1933 ================= -->
+    <section class="chapter" id="nsdap-vor33">
+      <details data-phase="ns">
+        <summary><span class="num">10</span> Die NSDAP vor 1933</summary>
+        <div class="chapter-body">
+
+          <h3 class="sub"><span class="tag">11.1</span>Entstehung</h3>
+          <p>Die NSDAP entstand aus der Deutschen Arbeiterpartei (DAP). Adolf Hitler trat 1919 bei und wurde schnell zum wichtigsten Redner der Partei.</p>
+          <p><strong>1920:</strong> Umbenennung in NSDAP, Verkündung des 25-Punkte-Programms.<br>
+          <strong>1921:</strong> Hitler übernahm die Parteiführung, Ausbau des Führerprinzips, Gründung der SA als Kampforganisation.</p>
+
+          <h3 class="sub"><span class="tag">11.2</span>25-Punkte-Programm</h3>
+          <p>Das Programm verband verschiedene politische Forderungen:</p>
+          <ul>
+            <li>Aufhebung des Versailler Vertrags,</li>
+            <li>Zusammenschluss aller Deutschen,</li>
+            <li>Erwerb neuen Lebensraums,</li>
+            <li>Ausschluss von Juden aus der Volksgemeinschaft,</li>
+            <li>Einschränkung parlamentarischer Demokratie,</li>
+            <li>starker Staat,</li>
+            <li>Volksgemeinschaft,</li>
+            <li>wirtschaftliche Forderungen gegen Großkonzerne und Finanzkapital.</li>
+          </ul>
+          <div class="callout">
+            <span class="callout-label">Wichtig</span>
+            Die NSDAP war keine normale konservative Partei. Sie war eine radikale, rassistische, antisemitische, antidemokratische und expansionistische Bewegung.
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- ================= PUTSCH 1923 ================= -->
+    <section class="chapter" id="putsch1923">
+      <details data-phase="ns">
+        <summary><span class="num">11</span> Hitlerputsch 1923</summary>
+        <div class="chapter-body">
+          <p>Am 8. und 9. November 1923 versuchte Hitler in München, die Macht zu übernehmen.</p>
+          <p><strong>Ablauf:</strong></p>
+          <ul>
+            <li>Hitler stürmte eine Versammlung im Bürgerbräukeller.</li>
+            <li>Er erklärte die bayerische und die Reichsregierung für abgesetzt.</li>
+            <li>Er wollte mit Ludendorff einen „Marsch auf Berlin“ durchführen.</li>
+            <li>Am 9. November marschierten die Putschisten zur Feldherrnhalle.</li>
+            <li>Die Polizei stoppte den Marsch.</li>
+            <li>14 Putschisten und drei Polizisten starben.</li>
+            <li>Hitler wurde verhaftet.</li>
+          </ul>
+          <p><strong>Folgen — der Putsch scheiterte militärisch, war für Hitler aber politisch nützlich:</strong></p>
+          <ul>
+            <li>Er wurde reichsweit bekannt.</li>
+            <li>Der Prozess bot ihm eine Bühne.</li>
+            <li>Er stellte sich als nationaler Politiker dar.</li>
+            <li>Die Justiz behandelte ihn auffallend milde.</li>
+            <li>Er erkannte, dass die Macht nicht durch einen direkten Putsch, sondern auf legalem Weg erobert werden sollte.</li>
+          </ul>
+          <p>Hitler erhielt fünf Jahre Festungshaft, wurde aber bereits nach wenigen Monaten entlassen. Im Gefängnis schrieb er Teile von <em>Mein Kampf</em>.</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- ================= STRATEGIEWECHSEL ================= -->
+    <section class="chapter" id="strategie">
+      <details data-phase="ns">
+        <summary><span class="num">12</span> Strategiewechsel der NSDAP</summary>
+        <div class="chapter-body">
+          <p>Nach dem Scheitern des Hitlerputsches änderte Hitler seine Strategie.</p>
+          <div class="cols2">
+            <div>
+              <p><strong>Vor 1923:</strong></p>
+              <ul>
+                <li>gewaltsamer Umsturz,</li>
+                <li>Vorbild Mussolinis,</li>
+                <li>Marsch auf Berlin,</li>
+                <li>Zusammenarbeit mit paramilitärischen Verbänden.</li>
+              </ul>
+            </div>
+            <div>
+              <p><strong>Nach 1923:</strong></p>
+              <ul>
+                <li>Teilnahme an Wahlen,</li>
+                <li>Nutzung des demokratischen Systems,</li>
+                <li>Aufbau einer Massenpartei,</li>
+                <li>Propaganda,</li>
+                <li>Gewinnung konservativer Eliten,</li>
+                <li>legale Machtübernahme,</li>
+                <li>spätere Ausschaltung der Demokratie.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="defbox">
+            <span class="defbox-term">Strategischer Kern</span>
+            Hitler wollte die Demokratie nicht verteidigen, sondern ihre Institutionen nutzen, um sie anschließend von innen heraus zu beseitigen.
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- ================= IDEOLOGIE ================= -->
+    <section class="chapter" id="ideologie">
+      <details data-phase="ns">
+        <summary><span class="num">13</span> Die Ideologie der NSDAP</summary>
+        <div class="chapter-body">
+
+          <h3 class="sub"><span class="tag">14.1</span>Rassenantisemitismus</h3>
+          <p>Der Antisemitismus der NSDAP war nicht nur religiös oder sozial, sondern rassistisch. Juden wurden nicht als religiöse Gruppe betrachtet, sondern als angeblich „fremde Rasse“.</p>
+          <ul>
+            <li>Taufe oder Religionswechsel änderten die Zuordnung nicht.</li>
+            <li>Jüdische Menschen galten als unveränderlich „rassisch“ jüdisch.</li>
+            <li>Juden wurden für politische, wirtschaftliche und gesellschaftliche Probleme verantwortlich gemacht.</li>
+            <li>Antisemitismus wurde pseudowissenschaftlich begründet.</li>
+          </ul>
+
+          <h3 class="sub"><span class="tag">14.2</span>Sozialdarwinismus</h3>
+          <p>Der Sozialdarwinismus übertrug die Vorstellung eines Kampfes ums Überleben auf Völker und „Rassen“: die „stärkeren“ Völker setzen sich durch, die „schwächeren“ verschwinden, Krieg gilt als natürlicher Prozess, Mitleid und Gleichheit gelten angeblich als schädlich, die eigene „Rasse“ muss geschützt und gestärkt werden.</p>
+          <p>Er diente als Rechtfertigung für: Militarismus, Imperialismus, Rassismus, Krieg, Eroberung, Vernichtungspolitik.</p>
+
+          <h3 class="sub"><span class="tag">14.3</span>Volksgemeinschaft</h3>
+          <p>Die NSDAP versprach die Überwindung sozialer und politischer Gegensätze. Die „Volksgemeinschaft“ sollte Klassenkonflikte überwinden, alle „Volksgenossen“ zusammenführen, politische Parteien ersetzen, die Gesellschaft homogenisieren, individuelle Interessen dem Volk unterordnen.</p>
+          <p>Allerdings war die Volksgemeinschaft nicht inklusiv für alle. Ausgeschlossen wurden unter anderem: Juden, Sinti und Roma, politische Gegner, Menschen mit Behinderungen, Homosexuelle, sogenannte „Asoziale“, Menschen mit abweichendem Verhalten.</p>
+          <div class="callout strike">
+            <span class="callout-label">Volksgemeinschaft = Gemeinschaft aller Menschen</span>
+            Die nationalsozialistische Volksgemeinschaft beruhte auf Ein- und Ausschluss. Sie definierte Zugehörigkeit rassistisch und politisch.
+          </div>
+
+          <h3 class="sub"><span class="tag">14.4</span>Führerprinzip</h3>
+          <p>Das Führerprinzip lehnte demokratische Entscheidungsprozesse ab. Es beruhte auf Gehorsam, Hierarchie, persönlicher Treue, Unterordnung, zentraler Entscheidungsmacht.</p>
+          <div class="flow">
+            <div class="flow-step">Führer</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step">Unterführer und staatliche Institutionen</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step">Volk</div>
+          </div>
+          <p>Der Führer sollte angeblich den „Volkswillen“ verkörpern. Dadurch wurde politische Kritik als Verrat dargestellt.</p>
+
+          <h3 class="sub"><span class="tag">14.5</span>Antiparlamentarismus</h3>
+          <p>Die NSDAP behauptete: Parlamente seien schwach, Parteien würden das Volk spalten, Debatten verhinderten Entscheidungen, Demokratie führe zu Chaos, nur ein starker Führer könne das Volk einigen.</p>
+
+          <h3 class="sub"><span class="tag">14.6</span>Antimarxismus</h3>
+          <p>Die NSDAP bekämpfte SPD, KPD, Gewerkschaften, Kommunismus, Sozialismus, Marxismus und verband Marxismus mit Judentum, internationaler Verschwörung, Auflösung der Nation, Bürgerkrieg.</p>
+
+          <h3 class="sub"><span class="tag">14.7</span>Lebensraum</h3>
+          <p>Die Lebensraumideologie forderte die Eroberung von Gebieten im Osten: territoriale Expansion, Siedlungsraum für Deutsche, wirtschaftliche Selbstversorgung, Unterwerfung slawischer Völker, Vernichtung oder Versklavung angeblich minderwertiger Bevölkerungen, Krieg gegen die Sowjetunion. Sie war daher von Anfang an mit Gewalt und rassistischer Herrschaft verbunden.</p>
+
+          <h3 class="sub"><span class="tag">14.8</span>Militarismus</h3>
+          <p>Die NSDAP verherrlichte Krieg, Opferbereitschaft, Disziplin, Gehorsam, körperliche Stärke, soldatische Werte. Die Gesellschaft sollte nach militärischen Prinzipien organisiert werden.</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- ================= PROPAGANDA ================= -->
+    <section class="chapter" id="propaganda">
+      <details data-phase="ns">
+        <summary><span class="num">14</span> Hitlers Propaganda</summary>
+        <div class="chapter-body">
+          <p>Hitler beschrieb in <em>Mein Kampf</em>, wie Propaganda funktionieren sollte. Nach seiner Vorstellung sollte Propaganda:</p>
+          <ul>
+            <li>einfach sein,</li>
+            <li>emotional sein,</li>
+            <li>wenige Botschaften enthalten,</li>
+            <li>ständig wiederholt werden,</li>
+            <li>Feindbilder erzeugen,</li>
+            <li>keine Zweifel zulassen,</li>
+            <li>die Masse direkt ansprechen.</li>
+          </ul>
+          <p><strong>Typische NS-Propagandathemen:</strong> „Versailles brechen“, „Arbeit und Brot“, „Nieder mit dem Marxismus“, „Deutschland erwache“, „Ein Volk, ein Reich, ein Führer“.</p>
+          <p>Propaganda wirkte besonders in der Krise, weil sie komplexe Probleme vereinfachte und klare Schuldige anbot.</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- ================= KRISE AB 1930 ================= -->
+    <section class="chapter" id="krise1930">
+      <details data-phase="macht">
+        <summary><span class="num">15</span> Die politische Krise ab 1930</summary>
+        <div class="chapter-body">
+
+          <h3 class="sub"><span class="tag">16.1</span>Ende der Großen Koalition</h3>
+          <p>Im März 1930 zerbrach die Große Koalition unter Reichskanzler Hermann Müller. Streitpunkt war die Arbeitslosenversicherung: Die DVP wollte die Beiträge der Arbeitgeber nicht stark erhöhen, die SPD wollte die Leistungen für Arbeitslose nicht kürzen. Ein Kompromiss scheiterte, das Kabinett trat zurück. Dieses Ereignis war entscheidend, weil danach keine stabile parlamentarische Mehrheit mehr zustande kam.</p>
+
+          <h3 class="sub"><span class="tag">16.2</span>Präsidialkabinette</h3>
+          <p>Ab 1930 regierten Kanzler zunehmend mit Unterstützung Hindenburgs und durch Notverordnungen.</p>
+          <p><strong>Brüning</strong> — Kanzler von März 1930 bis Mai 1932, regierte mit Artikel 48, führte Deflationspolitik durch, wurde von der SPD teilweise toleriert.</p>
+          <p><strong>Papen</strong> — Kanzler von Juni bis November 1932, hatte kaum parlamentarische Unterstützung, war stark konservativ und antidemokratisch, führte den Preußenschlag durch.</p>
+          <p><strong>Schleicher</strong> — Kanzler von Dezember 1932 bis Januar 1933, versuchte eine Querfront aufzubauen, scheiterte politisch, wurde durch Papens Intrigen verdrängt.</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- ================= PREUSSENSCHLAG ================= -->
+    <section class="chapter" id="preussenschlag">
+      <details data-phase="macht">
+        <summary><span class="num">16</span> Der Preußenschlag</summary>
+        <div class="chapter-body">
+          <p>Am <strong>20. Juli 1932</strong> setzte Franz von Papen die preußische Regierung unter Otto Braun ab. Preußen war der größte deutsche Teilstaat, traditionell ein Machtzentrum und unter SPD-Führung ein demokratisches Gegengewicht. Papen erklärte sich selbst zum Reichskommissar für Preußen.</p>
+          <p><strong>Bedeutung:</strong> Der Preußenschlag schwächte die SPD, beseitigte ein demokratisches Machtzentrum, stärkte den Reichspräsidenten, normalisierte den Einsatz von Notverordnungen und erleichterte später die Gleichschaltung der Länder.</p>
+          <div class="defbox">
+            <span class="defbox-term">Preußenschlag</span>
+            Die gewaltsame und verfassungsrechtlich umstrittene Absetzung der demokratischen preußischen Regierung durch Papen am 20. Juli 1932. Er gilt als wichtiger Schritt zur Zerstörung des föderalen und demokratischen Systems.
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- ================= LETZTE SCHRITTE ================= -->
+    <section class="chapter" id="letzteschritte">
+      <details data-phase="macht">
+        <summary><span class="num">17</span> Die letzten Schritte zur Ernennung Hitlers</summary>
+        <div class="chapter-body">
+
+          <h3 class="sub"><span class="tag">18.1</span>Reichstagswahl vom 31. Juli 1932</h3>
+          <p>Die NSDAP erhielt 37,4 % der Stimmen und wurde stärkste Partei. Hitler forderte die Reichskanzlerschaft. Hindenburg bot ihm jedoch zunächst nur die Vizekanzlerschaft an. Hitler lehnte ab, weil er die vollständige Regierungsgewalt wollte.</p>
+
+          <h3 class="sub"><span class="tag">18.2</span>Reichstagswahl vom 6. November 1932</h3>
+          <p>Die NSDAP verlor Stimmen, blieb aber stärkste Partei. Es entstand weiterhin keine stabile Regierung.</p>
+
+          <h3 class="sub"><span class="tag">18.3</span>Schleicher</h3>
+          <p>Schleicher wurde am 3. Dezember 1932 Reichskanzler. Er versuchte, Gewerkschaften einzubinden, eine „Querfront“ zu schaffen, Gregor Strasser vom NSDAP-Flügel einzubinden und die NSDAP zu spalten. Der Versuch scheiterte.</p>
+
+          <h3 class="sub"><span class="tag">18.4</span>Treffen zwischen Papen und Hitler</h3>
+          <p>Am 4. Januar 1933 trafen sich Papen und Hitler im Haus des Bankiers Kurt von Schröder in Köln. Sie einigten sich auf eine gemeinsame Regierung. Papen glaubte, Hitler kontrollieren zu können, ihn durch konservative Minister einzurahmen und die NSDAP für konservative Ziele nutzen zu können. Diese Einschätzung war ein schwerer politischer Fehler.</p>
+
+          <h3 class="sub"><span class="tag">18.5</span>30. Januar 1933</h3>
+          <p>Hindenburg ernannte Hitler zum Reichskanzler. Das Kabinett enthielt zunächst nur wenige Nationalsozialisten: Adolf Hitler als Reichskanzler, Wilhelm Frick als Reichsinnenminister, Hermann Göring ohne einflussreiches Reichsministerium, aber mit wichtigen politischen Funktionen.</p>
+          <p>Viele Konservative glaubten, sie könnten Hitler kontrollieren. Tatsächlich nutzte Hitler die konservativen Eliten, um an die Macht zu gelangen.</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- ================= HINDENBURG ================= -->
+    <section class="chapter" id="hindenburg">
+      <details data-phase="macht">
+        <summary><span class="num">18</span> Rolle Hindenburgs</summary>
+        <div class="chapter-body">
+          <p>In der älteren Darstellung wurde Hindenburg oft als alter, seniler Präsident beschrieben, der von Papen und anderen Beratern manipuliert worden sei.</p>
+          <p>Die Forschung, unter anderem Wolfram Pyta, betont stärker:</p>
+          <ul>
+            <li>Hindenburg handelte bewusst.</li>
+            <li>Er war kein bloßes Werkzeug.</li>
+            <li>Er wollte eine autoritäre „Volksgemeinschaft“.</li>
+            <li>Er lehnte parlamentarischen Pluralismus ab.</li>
+            <li>Er war bereit, Hitler als Mittel gegen die parlamentarische Demokratie einzusetzen.</li>
+            <li>Er unterschätzte oder akzeptierte die Gefahren des Nationalsozialismus.</li>
+          </ul>
+          <p>Hindenburg war daher ein zentraler Akteur bei der Zerstörung der Republik.</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- ================= GLEICHSCHALTUNG INTRO ================= -->
+    <section class="chapter" id="gleichschaltung">
+      <details data-phase="macht">
+        <summary><span class="num">19</span> Machtsicherung und Gleichschaltung 1933–1934</summary>
+        <div class="chapter-body">
+          <p>Hitler gelangte zunächst legal in das Amt des Reichskanzlers. Die Diktatur entstand anschließend durch eine Kombination aus: Notverordnungen, Terror, Propaganda, Gesetzgebung, Gleichschaltung, Ausschaltung politischer Gegner, Zustimmung oder Anpassung konservativer Eliten.</p>
+
+          <h3 class="sub">Reichstagsauflösung und Neuwahl</h3>
+          <p>Am 1. Februar 1933 löste Hindenburg den Reichstag auf. Neuwahlen wurden für den 5. März 1933 angesetzt. Die NSDAP wollte eine parlamentarische Mehrheit erreichen, den Reichstag unter Druck setzen, Gegner einschüchtern und die kommunistische Partei ausschalten.</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- ================= REICHSTAGSBRAND ================= -->
+    <section class="chapter" id="reichstagsbrand">
+      <details data-phase="macht">
+        <summary><span class="num">20</span> Reichstagsbrand und Reichstagsbrandverordnung</summary>
+        <div class="chapter-body">
+          <p>In der Nacht vom 27. auf den 28. Februar 1933 brannte das Reichstagsgebäude. Die Nationalsozialisten nutzten den Brand sofort politisch. Am 28. Februar 1933 unterzeichnete Hindenburg die „Verordnung zum Schutz von Volk und Staat“.</p>
+          <p><strong>Außerkraftgesetzte Rechte — unter anderem eingeschränkt oder aufgehoben:</strong></p>
+          <ul>
+            <li>persönliche Freiheit,</li>
+            <li>Meinungsfreiheit,</li>
+            <li>Pressefreiheit,</li>
+            <li>Versammlungsfreiheit,</li>
+            <li>Vereinigungsfreiheit,</li>
+            <li>Briefgeheimnis,</li>
+            <li>Schutz vor willkürlichen Hausdurchsuchungen.</li>
+          </ul>
+          <p><strong>Folgen:</strong> Massenverhaftungen von Kommunisten, Verfolgung politischer Gegner, Errichtung von Konzentrationslagern, Zerschlagung kommunistischer Organisationen, Einschüchterung der Bevölkerung, dauerhafte Ausnahmebedingungen.</p>
+          <div class="callout strike">
+            <span class="callout-label">Der Reichstagsbrand allein</span>
+            Der Brand war nicht der eigentliche Grund für die Diktatur. Entscheidend war, dass die NS-Führung ihn als Vorwand nutzte, um Grundrechte außer Kraft zu setzen und politische Gegner zu verfolgen.
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- ================= WAHL MÄRZ 33 ================= -->
+    <section class="chapter" id="maerz33">
+      <details data-phase="macht">
+        <summary><span class="num">21</span> Reichstagswahl vom 5. März 1933</summary>
+        <div class="chapter-body">
+          <p>Die NSDAP erhielt 43,9 % der Stimmen. Sie erreichte keine absolute Mehrheit. Gemeinsam mit der DNVP konnte sie jedoch eine parlamentarische Mehrheit bilden.</p>
+          <p>Die Wahl war nicht frei im demokratischen Sinn, weil Kommunisten verfolgt wurden, SA und SS Gegner terrorisierten, die Pressefreiheit eingeschränkt war und politische Veranstaltungen behindert wurden.</p>
+          <p>Trotzdem stimmten noch viele Menschen nicht für die NSDAP. Der Aufbau der Diktatur war also nicht einfach das Ergebnis einer überwältigenden Volksmehrheit.</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- ================= POTSDAM ================= -->
+    <section class="chapter" id="potsdam">
+      <details data-phase="macht">
+        <summary><span class="num">22</span> Der Tag von Potsdam</summary>
+        <div class="chapter-body">
+
+          <h3 class="sub"><span class="tag">24.1</span>Datum und Ort</h3>
+          <p>Der „Tag von Potsdam“ fand am <strong>21. März 1933</strong> statt, in der Garnisonkirche in Potsdam — einem symbolischen Ort preußischer Militär- und Monarchietradition. Anlass war die feierliche Eröffnung des neu gewählten Reichstags. Die eigentliche Reichstagssitzung fand wegen der angespannten politischen Lage nicht im Reichstagsgebäude statt.</p>
+
+          <h3 class="sub"><span class="tag">24.2</span>Inszenierung</h3>
+          <p>Die Veranstaltung wurde besonders von Joseph Goebbels propagandistisch inszeniert.</p>
+          <p><strong>Zentrale symbolische Szene:</strong> Hitler verneigte sich vor Hindenburg. Hindenburg erschien in der Tradition des preußischen Feldmarschalls. Hitler trat bewusst zurückhaltend und respektvoll auf. Alte preußische Eliten und neue nationalsozialistische Bewegung wurden symbolisch verbunden.</p>
+
+          <h3 class="sub"><span class="tag">24.3</span>Symbolik</h3>
+          <p>Der Tag sollte zwei politische Kräfte verbinden:</p>
+          <div class="cols2">
+            <div>
+              <p><strong>Das „alte Deutschland“</strong></p>
+              <ul>
+                <li>Preußen,</li>
+                <li>Monarchie,</li>
+                <li>Militär,</li>
+                <li>Adel,</li>
+                <li>konservative Eliten,</li>
+                <li>Hindenburg,</li>
+                <li>nationale Tradition.</li>
+              </ul>
+            </div>
+            <div>
+              <p><strong>Das „junge Deutschland“</strong></p>
+              <ul>
+                <li>NSDAP,</li>
+                <li>Hitler,</li>
+                <li>dynamische Massenbewegung,</li>
+                <li>nationale Erneuerung,</li>
+                <li>politische Zukunft.</li>
+              </ul>
+            </div>
+          </div>
+          <blockquote>Die Botschaft lautete sinngemäß: Hitler und die NSDAP seien keine revolutionäre Gefahr, sondern die Fortsetzung deutscher und preußischer Tradition.</blockquote>
+
+          <h3 class="sub"><span class="tag">24.4</span>Politische Funktion</h3>
+          <p>Der Tag von Potsdam sollte konservative Eliten beruhigen, die Reichswehr für Hitler gewinnen, bürgerliche Bevölkerungsschichten ansprechen, Hitler als staatsmännisch und national präsentieren, den Eindruck legaler Kontinuität erzeugen und die Zustimmung zum Ermächtigungsgesetz fördern.</p>
+          <p>Der Tag von Potsdam war somit ein Propagandaereignis zur Legitimierung der nationalsozialistischen Machtübernahme.</p>
+
+          <div class="defbox">
+            <span class="defbox-term">Klausurformulierung</span>
+            Der Tag von Potsdam war nicht bloß eine feierliche Reichstagseröffnung, sondern eine bewusst inszenierte politische Symbolhandlung. Durch die Verbindung Hindenburgs mit Hitler sollte der Übergang vom monarchisch-preußischen Deutschland zur nationalsozialistischen Herrschaft als harmonische nationale Erneuerung erscheinen.
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- ================= ERMÄCHTIGUNGSGESETZ ================= -->
+    <section class="chapter" id="ermaechtigung">
+      <details data-phase="macht">
+        <summary><span class="num">23</span> Ermächtigungsgesetz</summary>
+        <div class="chapter-body">
+          <p>Das Ermächtigungsgesetz wurde am <strong>23. März 1933</strong> beschlossen.</p>
+          <blockquote>Offizieller Titel: „Gesetz zur Behebung der Not von Volk und Reich“</blockquote>
+
+          <p><strong>Inhalt:</strong> Die Reichsregierung konnte nun Gesetze ohne Reichstag beschließen, Gesetze beschließen, die von der Verfassung abwichen, und internationale Verträge ohne parlamentarische Zustimmung schließen. Das Parlament entmachtete sich selbst.</p>
+
+          <p><strong>Abstimmung:</strong></p>
+          <ul>
+            <li>KPD-Abgeordnete waren bereits verhaftet, geflohen oder ausgeschlossen.</li>
+            <li>SA-Männer und SS-Leute bedrohten die Abgeordneten.</li>
+            <li>Die katholische Zentrumspartei stimmte zu.</li>
+            <li>Nur die SPD stimmte geschlossen dagegen.</li>
+          </ul>
+          <blockquote>Otto Wels erklärte sinngemäß: Freiheit und Leben könne man nehmen, die Ehre jedoch nicht.</blockquote>
+
+          <p><strong>Bedeutung:</strong> Das Ermächtigungsgesetz war der entscheidende Schritt von der autoritären Präsidialregierung zur nationalsozialistischen Diktatur. Es schuf den rechtlichen Rahmen für Gleichschaltung, Verfolgung, Parteiverbote, Ausschaltung des Föderalismus, Umgestaltung des Staates.</p>
+
+          <div class="callout strike">
+            <span class="callout-label">„Legalität“</span>
+            Dass das Ermächtigungsgesetz formal beschlossen wurde, bedeutet nicht, dass die Machtübernahme demokratisch war. Die Abstimmung fand unter Terror, Ausschaltung von Abgeordneten und Außerkraftsetzung von Grundrechten statt.
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- ================= LÄNDER ================= -->
+    <section class="chapter" id="laender">
+      <details data-phase="macht">
+        <summary><span class="num">24</span> Gleichschaltung der Länder</summary>
+        <div class="chapter-body">
+
+          <h3 class="sub"><span class="tag">26.1</span>Vorläufiges Gesetz zur Gleichschaltung der Länder</h3>
+          <p>Im März 1933 wurden die Länderparlamente entsprechend dem Ergebnis der Reichstagswahl neu zusammengesetzt. Dadurch erhielten die Nationalsozialisten auch in Ländern Einfluss, in denen sie keine Mehrheit hatten. Reichsstatthalter überwachten die Länderregierungen.</p>
+
+          <h3 class="sub"><span class="tag">26.2</span>Zweites Gleichschaltungsgesetz</h3>
+          <p>Im April 1933 wurden Reichsstatthalter eingesetzt. Sie kontrollierten die Länder und konnten Landesregierungen ernennen, Minister entlassen, Landtage auflösen, politische Entscheidungen überwachen.</p>
+
+          <h3 class="sub"><span class="tag">26.3</span>Auflösung der Länder</h3>
+          <p>Das Gesetz über den Neuaufbau des Reichs vom 30. Januar 1934 beseitigte die Eigenstaatlichkeit der Länder. Deutschland wurde zentralistisch organisiert.</p>
+
+          <p><strong>Bedeutung:</strong> Die Gleichschaltung zerstörte den Föderalismus, beseitigte politische Selbstständigkeit der Länder, stärkte die Zentralgewalt, erleichterte die einheitliche Diktatur.</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- ================= GEWERKSCHAFTEN ================= -->
+    <section class="chapter" id="gewerkschaften">
+      <details data-phase="macht">
+        <summary><span class="num">25</span> Zerschlagung der Gewerkschaften</summary>
+        <div class="chapter-body">
+          <p>Am 2. Mai 1933 besetzten SA und NSBO die Gewerkschaftshäuser. Gewerkschaftsführer wurden verhaftet, misshandelt, in Konzentrationslager gebracht. Die freien Gewerkschaften wurden zerschlagen. An ihre Stelle trat die Deutsche Arbeitsfront.</p>
+
+          <h3 class="sub">Deutsche Arbeitsfront (DAF)</h3>
+          <p>Die DAF war keine unabhängige Interessenvertretung. Sie kontrollierte Arbeiter und Unternehmer, unterband Streiks, setzte Lohnpolitik durch, organisierte Freizeitangebote, verbreitete nationalsozialistische Ideologie.</p>
+          <p>Programme wie „Kraft durch Freude“ sollten die Arbeiterschaft integrieren und politisch kontrollieren.</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- ================= PARTEIEN ================= -->
+    <section class="chapter" id="parteien">
+      <details data-phase="macht">
+        <summary><span class="num">26</span> Ausschaltung der Parteien</summary>
+        <div class="chapter-body">
+          <p>Nach der Zerschlagung der Gewerkschaften wurde die politische Opposition weiter beseitigt.</p>
+          <p><strong>Ablauf:</strong></p>
+          <ul>
+            <li>KPD verboten bzw. zerschlagen,</li>
+            <li>SPD verfolgt und am 22. Juni 1933 verboten,</li>
+            <li>bürgerliche Parteien lösten sich selbst auf,</li>
+            <li>Zentrum stimmte seiner Auflösung zu,</li>
+            <li>DNVP ging in der NSDAP auf,</li>
+            <li>Gesetz gegen die Neubildung von Parteien vom 14. Juli 1933.</li>
+          </ul>
+          <p>Damit war die NSDAP die einzige zugelassene Partei.</p>
+          <p><strong>Bedeutung:</strong> Die NSDAP beseitigte den politischen Pluralismus. Es gab nun keine freien Parteien, keine freie Opposition, keine unabhängige Gewerkschaftsbewegung, keine parlamentarische Kontrolle.</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- ================= GESELLSCHAFT ================= -->
+    <section class="chapter" id="gesellschaft">
+      <details data-phase="macht">
+        <summary><span class="num">27</span> Gleichschaltung der Gesellschaft</summary>
+        <div class="chapter-body">
+          <p>Gleichschaltung bedeutete nicht nur die Kontrolle von Staat und Parteien. Auch gesellschaftliche Bereiche wurden angepasst: Presse, Rundfunk, Kultur, Kunst, Schulen, Universitäten, Jugendverbände, Sportvereine, Berufsorganisationen.</p>
+
+          <h3 class="sub">Presse</h3>
+          <p>Journalisten mussten sich an die Vorgaben des Regimes halten. Juden und politische Gegner wurden aus Redaktionen entfernt.</p>
+
+          <h3 class="sub">Kultur</h3>
+          <p>Unerwünschte Kunst wurde als „entartet“ bezeichnet. Bücher wurden verbrannt. Viele Schriftsteller, Künstler und Wissenschaftler gingen ins Exil.</p>
+
+          <h3 class="sub">Jugend</h3>
+          <p>Die Hitlerjugend und der Bund Deutscher Mädel sollten junge Menschen ideologisch prägen. Ziele: körperliche Ertüchtigung, Gehorsam, Opferbereitschaft, Rassenideologie, militärische Vorbereitung für Jungen, Vorbereitung auf Mutterrolle für Mädchen. Andere Jugendverbände wurden verboten oder in die HJ eingegliedert.</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- ================= RÖHM ================= -->
+    <section class="chapter" id="roehm">
+      <details data-phase="macht">
+        <summary><span class="num">28</span> Der Röhm-Putsch</summary>
+        <div class="chapter-body">
+          <p>Der Röhm-Putsch fand im Sommer 1934 statt. Hintergrund war der politische Konflikt zwischen SA und Reichswehr.</p>
+
+          <p><strong>SA:</strong> Die SA unter Ernst Röhm hatte Millionen Mitglieder. Röhm forderte eine „zweite Revolution“, die Verstaatlichung großer Betriebe, die SA als Kern einer neuen Volksarmee sowie die Ersetzung des alten Offizierskorps der Reichswehr.</p>
+
+          <p><strong>Reichswehr und Konservative:</strong> Das Offizierskorps der Reichswehr sah die SA als Bedrohung. Auch konservative Eliten um Hindenburg forderten ein Eingreifen. Hitler benötigte die Unterstützung der Reichswehr für Wiederaufrüstung, geplante Kriege und die Festigung seiner Macht nach Hindenburgs Tod. Er entschied sich, die SA-Führung auszuschalten.</p>
+
+          <p><strong>Ablauf:</strong></p>
+          <ul>
+            <li>SA-Führer wurden unter dem Vorwand eines Putschversuchs verhaftet und ermordet.</li>
+            <li>Auch andere politische Gegner wie Kurt von Schleicher und Gregor Strasser wurden ermordet.</li>
+            <li>Hitler übernahm persönlich die Verantwortung.</li>
+            <li>Er erklärte sich selbst zum „obersten Gerichtsherrn“ des deutschen Volkes.</li>
+          </ul>
+
+          <p><strong>Bedeutung:</strong> Der Röhm-Putsch beseitigte die unruhige SA-Führung, schwächte die SA zugunsten der SS, beruhigte Reichswehr und Konservative, etablierte die persönliche Gewalt Hitlers über dem Gesetz und zeigte die Skrupellosigkeit der Führung.</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- ================= TOD HINDENBURG ================= -->
+    <section class="chapter" id="hindenburgtod">
+      <details data-phase="macht">
+        <summary><span class="num">29</span> Tod Hindenburgs</summary>
+        <div class="chapter-body">
+          <p>Paul von Hindenburg starb am <strong>2. August 1934</strong>. Hitler legte die Ämter von Reichspräsident und Reichskanzler zusammen. Neuer Titel: „Führer und Reichskanzler“. Die Reichswehr wurde direkt auf Hitler vereidigt.</p>
+          <blockquote>Der Eid lautet sinngemäß: „Ich schwöre bei Gott diesen heiligen Eid, dass ich dem Führer des Deutschen Reiches und Volkes, Adolf Hitler, dem Oberbefehlshaber der Wehrmacht, unbedingten Gehorsam leisten und als tapferer Soldat bereit sein will, zu jeder Zeit für diesen Eid mein Leben einzusetzen.“</blockquote>
+          <p>Damit war der Aufbau der Diktatur abgeschlossen.</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- ================= VERGLEICH ================= -->
+    <section class="chapter" id="vergleich">
+      <h2 style="font-size:1.3rem; margin-bottom: 10px;">Vergleich: Weimarer Republik vs. NS-Diktatur</h2>
+      <div class="tscroll">
+        <table>
+          <thead>
+            <tr><th>Merkmal</th><th>Weimarer Republik</th><th>Nationalsozialistischer Staat</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Staatsform</td><td>Parlamentarische Republik</td><td>Totalitäre Diktatur</td></tr>
+            <tr><td>Souveränität</td><td>Volkssouveränität</td><td>Führersouveränität</td></tr>
+            <tr><td>Gewaltenteilung</td><td>Vorhanden (Reichstag, Gerichte, Regierung)</td><td>Aufgehoben (Zentrierung auf Hitler)</td></tr>
+            <tr><td>Grundrechte</td><td>Garantiert durch die Verfassung</td><td>Außer Kraft gesetzt (durch Notverordnungen)</td></tr>
+            <tr><td>Parteiensystem</td><td>Pluralismus (viele Parteien)</td><td>Einparteienstaat (nur NSDAP)</td></tr>
+            <tr><td>Föderalismus</td><td>Vorhanden (selbstständige Länder)</td><td>Aufgehoben (Zentralstaat)</td></tr>
+            <tr><td>Presse/Medien</td><td>Frei</td><td>Kontrolliert (Gleichschaltung)</td></tr>
+            <tr><td>Opposition</td><td>Legal und notwendig</td><td>Verboten und verfolgt</td></tr>
+            <tr><td>Justiz</td><td>Unabhängig (trotz politischer Tendenzen)</td><td>Abhängig (dem Regime untergeordnet)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ================= CHRONOLOGIE ================= -->
+    <section class="chapter" id="chronologie">
+      <h2 style="font-size:1.3rem; margin-bottom: 10px;">Zusammenfassung der wichtigsten Daten (Chronologie)</h2>
+      <p>Für deine Klausur solltest du diese Daten fehlerfrei parat haben:</p>
+      <div class="timeline">
+        <div class="tl-item"><span class="tl-date">November 1918</span><span class="tl-text">Ausrufung der Republik (Novemberrevolution)</span></div>
+        <div class="tl-item"><span class="tl-date">August 1919</span><span class="tl-text">Weimarer Reichsverfassung tritt in Kraft</span></div>
+        <div class="tl-item"><span class="tl-date">März 1920</span><span class="tl-text">Kapp-Lüttwitz-Putsch</span></div>
+        <div class="tl-item"><span class="tl-date">Januar 1923</span><span class="tl-text">Beginn der Ruhrbesetzung; Ausbruch der Hyperinflation</span></div>
+        <div class="tl-item"><span class="tl-date">8./9. November 1923</span><span class="tl-text">Hitler-Ludendorff-Putsch in München</span></div>
+        <div class="tl-item"><span class="tl-date">Oktober 1929</span><span class="tl-text">Beginn der Weltwirtschaftskrise („Schwarzer Freitag“)</span></div>
+        <div class="tl-item"><span class="tl-date">März 1930</span><span class="tl-text">Rücktritt der Großen Koalition unter Hermann Müller (SPD)</span></div>
+        <div class="tl-item"><span class="tl-date">März 1930</span><span class="tl-text">Heinrich Brüning wird Reichskanzler (Beginn der Präsidialkabinette)</span></div>
+        <div class="tl-item"><span class="tl-date">Juli 1932</span><span class="tl-text">Preußenschlag (Absetzung der preußischen Regierung)</span></div>
+        <div class="tl-item"><span class="tl-date">Juli 1932</span><span class="tl-text">Reichstagswahl (NSDAP wird stärkste Kraft mit 37,4 %)</span></div>
+        <div class="tl-item"><span class="tl-date">Januar 1933</span><span class="tl-text">Treffen Papen–Hitler bei Bankier Schröder in Köln</span></div>
+        <div class="tl-item"><span class="tl-date">30. Januar 1933</span><span class="tl-text">Ernennung Adolf Hitlers zum Reichskanzler</span></div>
+        <div class="tl-item"><span class="tl-date">27./28. Februar 1933</span><span class="tl-text">Reichstagsbrand und Erlass der Reichstagsbrandverordnung</span></div>
+        <div class="tl-item"><span class="tl-date">5. März 1933</span><span class="tl-text">Letzte Reichstagswahl (NSDAP erhält 43,9 %)</span></div>
+        <div class="tl-item"><span class="tl-date">21. März 1933</span><span class="tl-text">Tag von Potsdam</span></div>
+        <div class="tl-item"><span class="tl-date">23. März 1933</span><span class="tl-text">Beschluss des Ermächtigungsgesetzes</span></div>
+        <div class="tl-item"><span class="tl-date">Mai 1933</span><span class="tl-text">Zerschlagung der Gewerkschaften</span></div>
+        <div class="tl-item"><span class="tl-date">Juli 1933</span><span class="tl-text">Gesetz gegen die Neubildung von Parteien (Einparteienstaat)</span></div>
+        <div class="tl-item"><span class="tl-date">Juni 1934</span><span class="tl-text">Röhm-Putsch (Ausschaltung der SA-Führung und politischer Gegner)</span></div>
+        <div class="tl-item"><span class="tl-date">August 1934</span><span class="tl-text">Tod Hindenburgs; Hitler wird „Führer und Reichskanzler“</span></div>
+      </div>
+    </section>
+
+    <!-- ================= BEGRIFFE ================= -->
+    <section class="chapter" id="begriffe">
+      <h2 style="font-size:1.3rem; margin-bottom: 10px;">Begriffe für deine Klausur</h2>
+      <p>Verwende diese historischen Fachbegriffe präzise:</p>
+      <div class="glossary">
+        <div class="gterm"><b>Dolchstoßlegende</b>Die falsche Behauptung, das Heer sei im Krieg nicht militärisch besiegt, sondern von der Heimat und Politikern „von hinten erdolcht“ worden.</div>
+        <div class="gterm"><b>Deflationspolitik</b>Eine Wirtschaftspolitik, die darauf abzielt, Ausgaben zu senken und Preise zu drücken, um den Staatshaushalt zu sanieren. Bei Brüning verschärfte sie die wirtschaftliche Notlage sozial und wirtschaftlich erheblich.</div>
+        <div class="gterm"><b>Präsidialkabinett</b>Eine Regierung, die ohne parlamentarische Mehrheit regiert und sich stattdessen auf das Notverordnungsrecht des Reichspräsidenten stützt.</div>
+        <div class="gterm"><b>Sonderwegsthese</b>Die umstrittene historische These, Deutschland habe im 19. und frühen 20. Jahrhundert einen vom westlichen Europa abweichenden Weg genommen, der die Entstehung des Nationalsozialismus begünstigt habe.</div>
+        <div class="gterm"><b>Gleichschaltung</b>Der Prozess der Beseitigung pluralistischer Strukturen in Staat und Gesellschaft, um alle Institutionen der nationalsozialistischen Ideologie und Herrschaft unterzuordnen.</div>
+        <div class="gterm"><b>Volksgemeinschaft</b>Der nationalsozialistische Begriff für eine rassistisch und politisch definierte, homogene Gemeinschaft unter Ausschluss von Minderheiten und Kritikern.</div>
+        <div class="gterm"><b>Preußenschlag</b>Die illegale Absetzung der preußischen Landesregierung durch Reichskanzler von Papen am 20. Juli 1932.</div>
+        <div class="gterm"><b>Ermächtigungsgesetz</b>Ein Gesetz, das die gesetzgebende Gewalt vom Parlament auf die Regierung überträgt und damit die Gewaltenteilung aufhebt.</div>
+      </div>
+    </section>
+
+    <!-- ================= ÜBUNGSAUFGABEN ================= -->
+    <section class="chapter" id="uebung">
+      <h2 style="font-size:1.3rem; margin-bottom: 10px;">Übungsaufgaben zur Vorbereitung</h2>
+      <p>Versuche, diese Fragen im Stil einer Klausuraufgabe (AFB II und III) schriftlich zu beantworten:</p>
+      <ol class="questions">
+        <li>Analysiere die Ursachen und Auswirkungen der Weltwirtschaftskrise auf das Parteiensystem der Weimarer Republik.</li>
+        <li>Erkläre die Funktionsweise des Präsidialsystems ab 1930 und beurteile dessen Rolle beim Übergang von der Demokratie zur Diktatur.</li>
+        <li>Untersuche die symbolische Bedeutung des „Tages von Potsdam“ für die Einbindung konservativer Eliten in den NS-Staat.</li>
+        <li>Diskutiere, inwiefern das Scheitern der Weimarer Republik vor allem auf Verfassungsmängel zurückzuführen ist oder ob andere Faktoren überwogen.</li>
+      </ol>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  Lernzettel Geschichte LK Q2 NRW — Krise der Weimarer Republik, Aufstieg und Ideologie der NSDAP, Machtsicherung und Gleichschaltung, Tag von Potsdam. Viel Erfolg bei deiner Klausur!
+</footer>
+
+</body>
+</html>
